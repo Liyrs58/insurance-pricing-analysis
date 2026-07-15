@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Insurance Cost Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+      color: #fff;
+      padding: 64px 0 48px;
+    }
+    header h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; }
+    header .subtitle { font-size: 1.2rem; color: #94a3b8; margin-top: 8px; font-weight: 500; }
+    header .badges { margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap; }
+    header .badges img { height: 24px; }
+
+    section { padding: 48px 0; }
+    section + section { border-top: 1px solid #e2e8f0; }
+
+    h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; color: #0f172a; }
+    p { color: #475569; margin-bottom: 12px; font-size: 1rem; }
+
+    .findings { list-style: none; }
+    .findings li {
+      padding: 12px 16px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    .findings li::before {
+      content: "▸";
+      color: #3b82f6;
+      font-weight: 700;
+      margin-right: 10px;
+    }
+
+    .models-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+    .model-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 20px 16px;
+      text-align: center;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    .model-card .icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .model-card .name { font-weight: 600; font-size: 0.9rem; color: #0f172a; }
+    .model-card .desc { font-size: 0.78rem; color: #64748b; margin-top: 4px; }
+
+    .btn {
+      display: inline-block;
+      background: #3b82f6;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+    .btn:hover { background: #2563eb; }
+    .btn-secondary {
+      background: transparent;
+      color: #3b82f6;
+      border: 2px solid #3b82f6;
+      margin-left: 12px;
+    }
+    .btn-secondary:hover { background: #eff6ff; }
+
+    footer {
+      text-align: center;
+      padding: 32px 0;
+      color: #94a3b8;
+      font-size: 0.85rem;
+      border-top: 1px solid #e2e8f0;
+    }
+    footer a { color: #3b82f6; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      header { padding: 40px 0 32px; }
+      header h1 { font-size: 1.75rem; }
+      .models-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Medical Insurance Cost Analysis</h1>
+    <p class="subtitle">Identifying Key Drivers of Healthcare Premiums</p>
+    <div class="badges">
+      <img src="https://img.shields.io/badge/GitHub%20Pages-Deployed-success" alt="GitHub Pages">
+      <img src="https://img.shields.io/badge/Python-3.10%2B-blue" alt="Python">
+      <img src="https://img.shields.io/badge/Jupyter-Notebook-orange" alt="Jupyter">
+      <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2>About This Project</h2>
+    <p>
+      This project performs a thorough actuarial analysis of medical insurance costs using the 
+      <strong>Kaggle Medical Cost dataset</strong>. It examines how demographic and lifestyle factors — 
+      age, BMI, smoking status, number of dependents, and geographic region — drive individual 
+      healthcare premiums.
+    </p>
+    <p>
+      A range of statistical and machine learning models are built, evaluated, and compared, 
+      demonstrating techniques directly applicable to insurance pricing and risk modelling in 
+      employee benefits analytics.
+    </p>
+    <a href="notebook.html" class="btn">View Full Analysis</a>
+    <a href="https://github.com/Liyrs58/insurance-pricing-analysis" class="btn btn-secondary">View on GitHub</a>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Key Findings</h2>
+    <ul class="findings">
+      <li><strong>Smoking is the dominant pricing factor</strong> — smokers incur premiums 3–4× higher than non-smokers across all models</li>
+      <li><strong>Age has a strong positive relationship</strong> with charges, adding approximately $250–$300 per year of age</li>
+      <li><strong>BMI shows a non-linear effect</strong> — the impact accelerates at higher BMI values, particularly for smokers</li>
+      <li><strong>Region effects are relatively small</strong>, with the Southeast showing marginally higher average charges</li>
+      <li><strong>XGBoost and Random Forest achieve the best predictive performance</strong> (lowest RMSE and highest R²), while GLM Gamma provides the most interpretable actuarial model</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Models Used</h2>
+    <div class="models-grid">
+      <div class="model-card">
+        <div class="icon">📊</div>
+        <div class="name">OLS Linear Regression</div>
+        <div class="desc">Baseline interpretable model</div>
+      </div>
+      <div class="model-card">
+        <div class="icon">📈</div>
+        <div class="name">GLM Gamma</div>
+        <div class="desc">Industry-standard actuarial model</div>
+      </div>
+      <div class="model-card">
+        <div class="icon">🎯</div>
+        <div class="name">Ridge Regression</div>
+        <div class="desc">Regularised linear model</div>
+      </div>
+      <div class="model-card">
+        <div class="icon">🌲</div>
+        <div class="name">Random Forest</div>
+        <div class="desc">Non-linear ensemble</div>
+      </div>
+      <div class="model-card">
+        <div class="icon">⚡</div>
+        <div class="name">XGBoost</div>
+        <div class="desc">Highest predictive accuracy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Tech Stack</h2>
+    <p>
+      <strong>Python</strong> (pandas, numpy, scikit-learn, statsmodels, xgboost) — 
+      <strong>Jupyter Notebook</strong> — 
+      <strong>Matplotlib / Seaborn</strong> for visualisation — 
+      <strong>GitHub Pages</strong> for public hosting.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Built by <strong>Rudra Pratap Singh</strong></p>
+    <p>Built as part of application for 
+      <a href="https://www.howdengroup.com/uk-en/careers/graduates">Howden Graduate Analyst — Employee Benefits Analytics and Risk Modelling</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
